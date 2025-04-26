@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <form method="POST">
+  <form method="POST"> <!-- this tells the browser to send the typed data back -->
     <label>Input:</label>
-    <input type="text" name="input1" required>
+    <input type="text" name="input1" required> <!-- input1 so the python app knows what to catch. required means the form can't be submitted empty -->
     <input type="submit" value="Predict">
   </form>
 
-  {% if prediction is not none %}
-    <p>Prediction: {{ prediction }}</p>
+  <!-- this is Jinja2 template code, which Flask uses -->
+  {% if prediction is not none %} <!-- if the prediction variable in the app.py has a value, it triggers this part and shows the prediction -->
+    <p>Prediction: {{ prediction }}</p> 
   {% endif %}
 </body>
 </html>
