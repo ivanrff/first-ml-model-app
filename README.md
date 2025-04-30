@@ -3,14 +3,23 @@ This repository was built with the help of ChatGPT to guide me through the steps
 # Layout
 
 my__first_model_app/
+
 │
+
 ├── app.py
+
 ├── model.pkl
+
 ├── templates/
+
 │   └── form.html
+
 ├── requirements.txt
+
 ├── Dockerfile
+
 └── README.md
+
 
 # How does it work?
 
