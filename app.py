@@ -17,7 +17,14 @@ with open("model.pkl", "rb") as f: # this opens the model in read binary mode ("
 # POST happens when a user submits a form (send the data)
 def index(): # this function will run when the '/' homepage is accessed
     if request.method == "POST": # if the form is submitted, proceed:
-        input_data = [float(request.form["input1"])]  # grabs the form field called "input1" in the form.html, float to change it to numeric input, and wrapped in a list so to expect more than 1 input
+
+        income = float(request.form["income"])  # grabs the form field called "input1" in the form.html, float to garantee it is a numeric input
+        houseAge = float(request.form["houseAge"])
+        nRooms = float(request.form["nRooms"])
+        population = float(request.form["population"])
+
+        input_data = [income, houseAge, nRooms, population]
+
         prediction = model.predict([input_data]) # this gets the prediction from the model
         return render_template("form.html", prediction=prediction[0]) # this returns the form and shows the prediction
     return render_template("form.html", prediction=None) # if it's a GET request, it only shows the homepage without a prediction

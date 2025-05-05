@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <style>
+    div {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
 <body>
-  <form method="POST"> <!-- this tells the browser to send the typed data back -->
-    <label>Input:</label>
-    <input type="text" name="input1" required> <!-- input1 so the python app knows what to catch. required means the form can't be submitted empty -->
+  <form method="POST">
+    <div>
+      <label>Avg_Area_Income:</label><br>
+      <input type="number" name="income" required>
+    </div>
+
+    <div>
+      <label>Avg_Area_House_Age:</label><br>
+      <input type="number" name="houseAge" required>
+    </div>
+
+    <div>
+      <label>Avg_Area_Number_of_Rooms:</label><br>
+      <input type="number" name="nRooms" required>
+    </div>
+
+    <div>
+      <label>Area_Population:</label><br>
+      <input type="number" name="population" required>
+    </div>
+
     <input type="submit" value="Predict">
   </form>
 
-  <!-- this is Jinja2 template code, which Flask uses -->
-  {% if prediction is not none %} <!-- if the prediction variable in the app.py has a value, it triggers this part and shows the prediction -->
+  {% if prediction is not none %}
     <p>Prediction: {{ prediction }}</p> 
   {% endif %}
 </body>
